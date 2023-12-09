@@ -1,0 +1,9 @@
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:00:41.026Z"}
+{"level":"info","message":"GET /favicon.ico","timestamp":"2023-12-09T09:00:41.258Z"}
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:04:54.292Z"}
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:04:56.067Z"}
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:05:17.748Z"}
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:05:25.261Z"}
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:05:31.618Z"}
+{"level":"info","message":"GET /","timestamp":"2023-12-09T09:07:40.484Z"}
+{"level":"error","message":"Error 404 - Not Found - GET - / - IP: ::1","timestamp":"2023-12-09T09:07:40.502Z"}
