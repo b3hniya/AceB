@@ -5,6 +5,14 @@ import { Router } from "express";
 const toKebabCase = (str: string) =>
   str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 
+/**
+ * Dynamically loads controllers from a given directory and attaches them to a router.
+ * @param baseDir The base directory to start loading controllers from.
+ * @returns A router with all the controllers attached.
+ * @example
+ * const router = dynamicRouter(path.join(__dirname, "controllers/"));
+ * app.use("/api", router);
+ */
 const dynamicRouter = (baseDir: string): Router => {
   const router = Router();
 
