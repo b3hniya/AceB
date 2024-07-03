@@ -41,7 +41,10 @@ const createApp = (): Express => {
       the second one is a dynamic way of handling routes
   */
 
+  // Manual handling
   // app.use("/api/v1", routes);
+
+  // Dynamic handling
   app.use("/api", dynamicRouter(path.join(__dirname, "controllers/")));
 
   app.use(errorMiddleware);
