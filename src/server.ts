@@ -6,7 +6,7 @@ import logger from "./configs/logger";
 dotenv.config();
 validateEnv();
 
-const app = createApp();
+const app = await createApp();
 const PORT = process.env.PORT || 3000;
 
 process.on("unhandledRejection", (reason, promise) => {

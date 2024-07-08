@@ -7,9 +7,10 @@ import express, { Express } from "express";
 import dynamicRouter from "./middlewares/dynamicRouter";
 import { requestLogger } from "./middlewares/requestLogger";
 import { errorMiddleware } from "./middlewares/errorMiddleware";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
-const origin =
-  process.env.NODE_ENV === "production" ? process.env.CORS_ORIGIN : "*";
+const origin = process.env.NODE_ENV === "production" ? process.env.CORS_ORIGIN : "*";
 
 const methods = "GET,POST,PUT,DELETE";
 
@@ -24,7 +25,11 @@ const corsOptions = {
   allowedHeaders,
 };
 
-const createApp = (): Express => {
+export const __filename = fileURLToPath(import.meta.url);
+export const __dirname = dirname(__filename);
+console.log(__dirname);
+
+const createApp = async (): Promise<Express> => {
   const app = express();
 
   app.use(helmet());
@@ -45,7 +50,9 @@ const createApp = (): Express => {
   // app.use("/api/v1", routes);
 
   // Dynamic handling
-  app.use("/api", dynamicRouter(path.join(__dirname, "controllers/")));
+  const routes = await dynamicRouter(path.join(__dirname, "controllers/"));
+
+  app.use("/api", routes);
 
   app.use(errorMiddleware);
 
